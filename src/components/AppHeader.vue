@@ -64,6 +64,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import axios from 'axios';
 
 const isLoginModalVisible = ref(false);
 const isRegisterModalVisible = ref(false);
@@ -87,16 +88,34 @@ const closeModals = () => {
   isRegisterModalVisible.value = false;
 };
 
-const login = () => {
-  console.log('Вход:', { email: email.value, password: password.value });
-  // Логика для входа
-  closeModals();
+const login = async () => {
+  try {
+    const response = await axios.post('https://your-backend-url/api/login', {
+      email: email.value,
+      password: password.value,
+    });
+    console.log('Успешный вход:', response.data);
+    // Обработка успешного входа (например, сохранение токена и закрытие модала)
+    closeModals();
+  } catch (error) {
+    console.error('Ошибка входа:', error);
+    // Обработка ошибки
+  }
 };
 
-const register = () => {
-  console.log('Регистрация:', { email: regEmail.value, password: regPassword.value });
-  // Логика для регистрации
-  closeModals();
+const register = async () => {
+  try {
+    const response = await axios.post('https://your-backend-url/api/register', {
+      email: regEmail.value,
+      password: regPassword.value,
+    });
+    console.log('Успешная регистрация:', response.data);
+    // Обработка успешной регистрации (например, переключение на вход)
+    closeModals();
+  } catch (error) {
+    console.error('Ошибка регистрации:', error);
+    // Обработка ошибки
+  }
 };
 
 const switchToRegister = () => {
@@ -109,6 +128,7 @@ const switchToLogin = () => {
   showLoginModal();
 };
 </script>
+
 
 <style scoped>
 .upload-container {
