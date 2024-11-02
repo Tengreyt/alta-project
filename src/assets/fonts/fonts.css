@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'BravoRG';
+    src: url('./BravoRG.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BravoSC';
+    src: url('./BravoSC.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
