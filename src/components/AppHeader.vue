@@ -3,7 +3,7 @@
     <header class="upload-container">
       <div class="header-row">
         <div class="header-logo">
-          <img src="../assets/images/ALTA.ai.png" alt="ALTA.ai">
+          <img src="../assets/images/ALTA.AI.png" alt="ALTA.ai">
         </div>
         <nav class="nav">
           <ul class="nav-list">
@@ -132,7 +132,7 @@ const switchToLogin = () => {
 
 <style scoped>
 .upload-container {
-  padding: 58px 0 31px 0;
+  padding: 58px 0 0px 0;
   border-bottom: 1px solid #000000;
 }
 
@@ -141,7 +141,7 @@ const switchToLogin = () => {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0 20px;
+  margin-bottom: 22px ;
 }
 
 .header-logo img {
@@ -154,7 +154,7 @@ const switchToLogin = () => {
   display: flex;
   padding: 0;
   margin: 0;
-  gap: 40px;
+  gap: 70px;
   flex-wrap: wrap;
 }
 

@@ -10,20 +10,20 @@
 
 <style scoped>
 .template{
-    margin-top: 44px;
+    margin-top: 25px;
     border-bottom: 1px solid #000000;
 }
 
 .template-content {
     font-family: 'BravoRG', sans-serif;
     font-size: 80px;
-    font-weight: 400;
-    line-height: 161.56px;
-    text-align: center;
     margin-bottom: 38px;
 }
 
 .template-title {
+    line-height: 161.56px;
+    text-align: center;
+    font-weight: 400;
     color: #3D3C3E;
     margin: 0px;
 }

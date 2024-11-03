@@ -97,7 +97,7 @@ const togglePlayer = () => {
 
 .wavy {
     margin-top: 25px;
-    margin-bottom: -30px;
+    margin-bottom: -40px;
 }
 
 .info-subtitle {
@@ -168,7 +168,7 @@ const togglePlayer = () => {
 }
 
 .button {
-    background-color: #FF6D00;
+    background-color: #EE5600BA;
     color: white;
     font-family: 'Play', sans-serif;
     font-size: 18px;

@@ -1,8 +1,9 @@
 <template>
   <div class="main">
-    <AppHeader></AppHeader>
-    <TemplateCreator></TemplateCreator>
-    <ContentSection></ContentSection>
+    <AppHeader />
+    <TemplateCreator />
+    <ContentSection />
+    <AppAdvantages />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import AppHeader from './components/AppHeader.vue';
 import TemplateCreator from './components/TemplateCreator.vue';
 import ContentSection from './components/ContentSection.vue';
+import AppAdvantages from './components/AppAdvantages.vue';
 
 </script>
 
