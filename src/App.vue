@@ -4,6 +4,8 @@
     <TemplateCreator />
     <ContentSection />
     <AppAdvantages />
+    <AppSubscription />
+
   </div>
 </template>
 
@@ -11,7 +13,9 @@
 import AppHeader from './components/AppHeader.vue';
 import TemplateCreator from './components/TemplateCreator.vue';
 import ContentSection from './components/ContentSection.vue';
-import AppAdvantages from './components/AppAdvantages.vue';
+import AppAdvantages from './components/AppAdvantages.vue'; // две секции внутри
+import AppSubscription from './components/AppSubscription.vue';
+
 
 </script>
 

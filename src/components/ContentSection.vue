@@ -8,7 +8,7 @@
                     превращаем фотографии в точные шаблоны 
                     для вашей одежды с учетом разных размеров.
                 </p>
-                <svg class="wavy">
+                <svg>
                     <use xlink:href="../assets/icons/noun-wavy-line.svg#noun-wavy-line"></use>
                 </svg>
             </div>
@@ -28,7 +28,9 @@
 
 
                <div class="info-player" @click="togglePlayer">
-                    <img src="../assets/icons/video.png" alt="">
+                    <svg>
+                        <use xlink:href="../assets/icons/player.svg#player"></use>
+                    </svg>
                     <p class="text-player">Посмотреть видео гайд</p>
                 </div>
             </div>
@@ -95,9 +97,9 @@ const togglePlayer = () => {
     justify-content: space-between;
 }
 
-.wavy {
-    margin-top: 25px;
-    margin-bottom: -40px;
+.info-line > svg {
+    width: 125px;
+    height: 144px;
 }
 
 .info-subtitle {
@@ -204,6 +206,11 @@ const togglePlayer = () => {
     gap: 8px;
     cursor: pointer;
     color: #000;
+}
+
+.info-player > svg {
+    width: 54px;
+    height: 51px;
 }
 
 .player-icon {
