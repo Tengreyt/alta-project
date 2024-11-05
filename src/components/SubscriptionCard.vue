@@ -27,7 +27,7 @@ defineProps({
 
 <style scoped>
 .card-subscription {
-  max-width: 423px;
+  max-width: 421px;
   display: flex;
   align-self: center;
   gap: 21px;
@@ -39,7 +39,6 @@ defineProps({
 }
 
 .card-subscription-text {
-  max-width: 359px;
   font-family: 'Play', sans-serif;
   font-size: 15px;
   font-weight: 400;

@@ -106,10 +106,14 @@ import AppPricePurple from './PriceCard/AppPricePurple.vue';
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
     gap: 72px;
     margin-top: 30px;
 }
 
+@media (max-width: 1024px) {
+  .card-to-subscription {
+    flex-wrap: wrap;
+  }
+}
 
 </style>
