@@ -51,14 +51,14 @@ defineProps({
   width: 305px;
   cursor: pointer;
   border-radius: 10px;
-  border: 1px solid #34CA00;
+  border: 1px solid #048829;
   transition: background-color 0.3s ease, color 0.3s ease;
 
 }
 
 /* Изменяем цвет карточки и текста при наведении */
 .card-price:hover {
-  background-color: #048829;
+  background-color: #2eb003;
   color: #ffffff;
 }
 
