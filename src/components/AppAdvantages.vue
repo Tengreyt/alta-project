@@ -29,7 +29,7 @@
                 </div>
                 <div class="icon-additional">
                     <svg>
-                        <use xlink:href="../assets/icons/addvensi.svg#addvensi"></use>
+                        <use xlink:href="/icons/addvensi.svg#addvensi"></use>
                     </svg>
                     <p class="icon-text">Узнать больше</p>
                 </div>
@@ -189,6 +189,12 @@
 svg {
     width: 77px; /* Укажите желаемую ширину */
     height: 54px;
+}
+
+@media (max-width: 1440px) {
+    .additional {
+        width: 672px;
+    }
 }
 
 @media (max-width: 1024px) {

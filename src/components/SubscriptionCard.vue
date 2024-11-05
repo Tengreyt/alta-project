@@ -1,7 +1,7 @@
 <template>
     <div class="card-subscription">
       <p class="card-subscription-text">{{ text }}</p>
-      <img :src="image" :alt="altText" />
+      <img :src="`/icons/${image}.png`" :alt="altText" />
     </div>
 </template>
 
@@ -31,7 +31,6 @@ defineProps({
   display: flex;
   align-self: center;
   gap: 21px;
-  margin-top: 30px;
 }
 
 .card-subscription img {
@@ -40,7 +39,7 @@ defineProps({
 }
 
 .card-subscription-text {
-  max-width: 349px;
+  max-width: 359px;
   font-family: 'Play', sans-serif;
   font-size: 15px;
   font-weight: 400;

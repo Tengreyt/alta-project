@@ -9,8 +9,9 @@
                     для вашей одежды с учетом разных размеров.
                 </p>
                 <svg>
-                    <use xlink:href="../assets/icons/noun-wavy-line.svg#noun-wavy-line"></use>
+                    <use xlink:href="/icons/noun-wavy-line.svg#noun-wavy-line"></use>
                 </svg>
+
             </div>
 
             <h2 class="info-text">Больше возможностей</h2>
@@ -29,7 +30,7 @@
 
                <div class="info-player" @click="togglePlayer">
                     <svg>
-                        <use xlink:href="../assets/icons/player.svg#player"></use>
+                        <use xlink:href="/icons/player.svg#player"></use>
                     </svg>
                     <p class="text-player">Посмотреть видео гайд</p>
                 </div>
