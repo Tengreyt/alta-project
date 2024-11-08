@@ -5,7 +5,8 @@
     <ContentSection />
     <AppAdvantages />
     <AppSubscription />
-
+    <AppImportant />
+    <AppFooter />
   </div>
 </template>
 
@@ -13,14 +14,16 @@
 import AppHeader from './components/AppHeader.vue';
 import TemplateCreator from './components/TemplateCreator.vue';
 import ContentSection from './components/ContentSection.vue';
-import AppAdvantages from './components/AppAdvantages.vue'; // две секции внутри
+import AppAdvantages from './components/AppAdvantages.vue'; 
 import AppSubscription from './components/AppSubscription.vue';
+import AppImportant from './components/AppImportant.vue';
+import AppFooter from './components/AppFooter.vue';
 
 
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Play:wght@400;700&display=swap');
 @import './assets/fonts/fonts.css';
 body {
   max-width: 1920px;

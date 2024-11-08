@@ -54,6 +54,10 @@
             <label for="reg-password">Пароль</label>
             <input type="password" id="reg-password" v-model="regPassword" required />
           </div>
+          <div class="form-group">
+            <label for="reg-password">Подтвердите пароль</label>
+            <input type="password" id="reg-password" v-model="regPassword" required />
+          </div>
           <button type="submit">Зарегистрироваться</button>
           <p>Уже есть аккаунт? <a href="#" @click.prevent="switchToLogin">Войти</a></p>
         </form>
