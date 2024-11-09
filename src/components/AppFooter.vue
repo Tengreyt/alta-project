@@ -250,13 +250,25 @@
         align-items: flex-start;
     }
 
-    .footer-logo {
-        width: 120px; /* Уменьшаем размер логотипа */
-        margin-bottom: 15px;
+    .footer-logo > img {
+        width: 220px; /* Уменьшаем размер логотипа */
+    }
+
+    .footer-title {
+        font-size: 36px;
+    }
+    
+    .footer-line {
+        width: 100%; /* Сделаем линию меньше ширины контейнера */
+        height: 1px;
+        background: #FDFDFD;
+        margin: 0px;
     }
 
     .footer-navigation {
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center; /* Центрируем меню навигации */
+        width: 100%;
     }
 
     .footer-nav {
@@ -271,6 +283,13 @@
 
     .footer-list li {
         font-size: 16px;
+    }
+
+    .footer-row {
+        flex-direction: column;
+        align-items: center; /* Центрируем элементы по горизонтали */
+        justify-content: center; /* Центрируем элементы по вертикали */
+        gap: 20px;
     }
 }
 
@@ -291,7 +310,7 @@
     }
 
     .footer-title {
-        font-size: 30px;
+        font-size: 27px;
         text-align: center;
     }
 

@@ -33,6 +33,7 @@
     flex-direction: column;
     gap: 35px;
     margin-bottom: 257px;
+    padding: 0 20px;
 }
 
 .important {
@@ -49,7 +50,7 @@
     font-family: 'BravoRG', sans-serif;
     font-size: 50px;
     font-weight: 400;
-    line-height: 57.7px;
+    line-height: 1.2;
     text-align: left;
     color: #000000;
     margin: 0;
@@ -82,6 +83,94 @@
 .secondary-images > div:nth-child(2) {
     display: flex;
     gap: 24px;
+}
+
+.primary-image > img, 
+.secondary-images img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1024px) {
+    .important-title {
+        font-size: 36px;
+    }
+
+    .important-section {
+        gap: 25px;
+        margin-bottom: 150px;
+    }
+
+    .line {
+        max-width: 250px;
+    }
+
+    .primary-image > img {
+        max-width: 80%; /* Уменьшаем основной блок */
+    }
+
+    .secondary-images img {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .important-title {
+        font-size: 28px;
+    }
+
+    .primary-image, .secondary-images {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .secondary-images > div:nth-child(2) {
+        gap: 15px;
+        width: 61.2%;
+    }
+
+    .important-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .primary-image > img {
+        max-width: 90%; /* Основное изображение чуть больше для небольших экранов */
+    }
+
+    .secondary-images img {
+        max-width: 80%; /* Уменьшаем второстепенные картинки */
+    }
+}
+
+@media (max-width: 480px) {
+    .important-title {
+        font-size: 24px;
+        line-height: 1.1;
+    }
+
+    .line {
+        max-width: 150px;
+    }
+
+    .secondary-images > div:nth-child(2) {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .primary-image > img {
+        max-width: 100%; /* Используем полную ширину экрана */
+    }
+
+    .secondary-images img {
+        max-width: 100%; /* Ставим каждую картинку на полную ширину */
+    }
+
+    .secondary-images > div:nth-child(2) {
+        flex-direction: column; /* Картинки будут друг под другом на маленьких экранах */
+    }
 }
 
 

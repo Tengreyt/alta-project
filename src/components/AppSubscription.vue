@@ -90,15 +90,20 @@ import AppPricePurple from './PriceCard/AppPricePurple.vue';
   margin: 62px 55px 50px 55px;
 }
 
-
+.subscription-container-two {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin: 62px 55px 50px 55px;
+}
 
 .subscription-title {
-    font-family: 'BravoRG', sans-serif;
-    font-size: 50px;
-    font-weight: 400;
-    line-height: 57.7px;
-    text-align: left;
-    margin: 0;
+  font-family: 'BravoRG', sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 57.7px;
+  text-align: left;
+  margin: 0;
 }
 
 /* card */
@@ -116,4 +121,19 @@ import AppPricePurple from './PriceCard/AppPricePurple.vue';
   }
 }
 
+@media (max-width: 768px) {
+  .subscription-container-two {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin: 62px 55px 50px 55px;
+  }
+  .subscription-title {
+    text-align: center;
+  }
+  .title-subscrition {
+    font-size: 40px;
+  }
+}
 </style>
