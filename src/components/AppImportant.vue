@@ -116,6 +116,15 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .line {
+        max-width: 350px;
+    }
+    .secondary-images img {
+        max-width: 48.5%;
+    }
+}
+
 @media (max-width: 768px) {
     .important-title {
         font-size: 28px;

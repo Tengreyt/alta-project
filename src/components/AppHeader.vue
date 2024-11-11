@@ -292,8 +292,7 @@ const switchToLogin = () => {
   }
 
   .header-row {
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 }
 

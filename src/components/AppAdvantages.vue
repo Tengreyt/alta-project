@@ -216,6 +216,10 @@ svg {
     .title-card-subtext {
         font-size: 14px;
     }
+    .advantages {
+        display: flex;
+        justify-content: center;        
+    }
 }
 
 @media (max-width: 768px) {

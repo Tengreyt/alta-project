@@ -25,6 +25,12 @@ import AppFooter from './components/AppFooter.vue';
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Play:wght@400;700&display=swap');
 @import './assets/fonts/fonts.css';
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
 body {
   max-width: 1920px;
   margin: 0 auto;

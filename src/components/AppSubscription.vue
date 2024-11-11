@@ -26,7 +26,7 @@
       <div class="subscription-container-two">
         <AppPrice
           title="БАЗОВАЯ"
-          text="Ограниченная  генерация"
+          text="Ограниченная генерация"
           price="20"
           textTwo="Библиотека с выкройками"
           image="gal"
@@ -45,15 +45,45 @@
           textTwo="Возможность редактирования"
           image="gal"
         />
+
+          <!-- <SubscriptionModal v-if="isModalOpen" :title="selectedTitle" @close="closeModal">
+            <p>{{ selectedDescription }}</p>
+          </SubscriptionModal> -->
       </div>
     </div>
 </template>
 
 <script setup>
+// import { ref } from 'vue';
 import AppSubscription from './SubscriptionCard.vue';
 import AppPrice from './PriceCard/AppPrice.vue';
 import AppPriceBlue from './PriceCard/AppPriceBlue.vue';
 import AppPricePurple from './PriceCard/AppPricePurple.vue';
+// import SubscriptionModal from './Subscription/SubscriptionModal.vue';
+
+// const isModalOpen = ref(false);
+// const selectedTitle = ref('');
+// const selectedDescription = ref('');
+
+// function openModal(title) {
+//   selectedTitle.value = title;
+
+//   if (title === 'БАЗОВАЯ') {
+//     selectedDescription.value = 'Плюсы: Базовые функции... Минусы: Ограниченная генерация';
+//   } else if (title === 'ПРОДВИНУТАЯ') {
+//     selectedDescription.value = 'Плюсы: Расширенные функции... Минусы: Нет некоторых премиум-опций';
+//   } else if (title === 'ПРЕМИУМ PRO+') {
+//     selectedDescription.value = 'Плюсы: Все функции без ограничений... Минусы: Высокая стоимость';
+//   }
+
+//   isModalOpen.value = true;
+// }
+
+// function closeModal() {
+//   isModalOpen.value = false;
+//   selectedTitle.value = '';
+//   selectedDescription.value = '';
+// }
 
 </script>
   
@@ -118,6 +148,23 @@ import AppPricePurple from './PriceCard/AppPricePurple.vue';
 @media (max-width: 1024px) {
   .card-to-subscription {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 1024px) {
+  .subscription-title {
+    text-align: center;
+  }
+  .subscription-container-two {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin: 62px 55px 50px 55px;
+  }
+  .subscription-container-two>div:nth-child(3) {
+    display: flex;
+    justify-content: flex-start;
   }
 }
 

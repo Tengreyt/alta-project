@@ -256,5 +256,15 @@ const togglePlayer = () => {
     cursor: pointer;
 }
 
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .content-image {
+        margin-bottom: 75px;
+    }
+}
+
 
 </style>

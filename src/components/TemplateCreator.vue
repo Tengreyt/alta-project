@@ -31,4 +31,11 @@
 .template-title span {
     color: #F25B05E5;
 }
+
+@media (max-width: 1024px) {
+    .template-title {
+        line-height: 100px;
+        font-size: 110px;
+    }
+}
 </style>
