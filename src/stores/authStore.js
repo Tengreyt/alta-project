@@ -15,6 +15,15 @@ export const useAuthStore = defineStore("auth", {
   },
 
   actions: {
+    async register(credentials) {
+      try {
+        await AuthService.register(credentials); // Запрос на регистрацию
+        alert('Регистрация прошла успешно! Теперь войдите в аккаунт.');
+      } catch (error) {
+        console.error('Ошибка регистрации:', error);
+        alert('Не удалось зарегистрироваться. Проверьте данные.');
+      }
+    },
 
     async login(credentials) {
       try {
@@ -22,7 +31,7 @@ export const useAuthStore = defineStore("auth", {
         this.token = response.data.access // Симуляция токена
         localStorage.setItem(ACCESS_KEY, this.access);
         localStorage.setItem(REFRESH_KEY, this.refresh);
-        alert("Вход успешный!");
+        console.log("Вход успешный!");
       } catch (error) {
         console.error("Ошибка авторизации:", error);
         alert("Ошибка входа. Проверьте данные.");

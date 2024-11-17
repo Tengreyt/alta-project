@@ -3,23 +3,25 @@
     <div class="modal-content">
       <span class="close" @click="closeModal">&times;</span>
       <h2>Регистрация</h2>
-      <form @submit.prevent="register">
+      <form @submit.prevent="handleRegister">
+        <div class="form-group">
+          <label for="reg-name">Имя</label>
+          <input id="reg-name" v-model="regName" autocomplete="name" required />
+        </div>
         <div class="form-group">
           <label for="reg-email">Электронная почта</label>
-          <input type="email" id="reg-email" v-model="regEmail" required />
+          <input type="email" id="reg-email" v-model="regEmail" autocomplete="email" required />
         </div>
         <div class="form-group">
           <label for="reg-password">Пароль</label>
-          <input type="password" id="reg-password" v-model="regPassword" required />
+          <input type="password" id="reg-password" v-model="regPassword" autocomplete="currents-password" required />
         </div>
         <div class="form-group">
           <label for="repeated-password">Подтвердите пароль</label>
-          <input type="password" id="repeated-password" v-model="repeatedPassword" required />
+          <input type="password" id="repeated-password" v-model="repeatedPassword" autocomplete="current-password" required />
         </div>
         <button type="submit">Зарегистрироваться</button>
-        <router-link to="/login">
-          <p>Уже есть аккаунт? <a href="#" @click.prevent="switchToLogin">Войти</a></p>
-        </router-link>
+        <p>Уже есть аккаунт? <a href="#" @click.prevent="switchToLogin">Войти</a></p>
       </form>
     </div>
   </div>
@@ -27,17 +29,36 @@
 
 <script setup>
 import { ref, defineProps } from 'vue';
-
+import { useAuthStore } from '@/stores/authStore';
 
 defineProps({
+  isRegisterModalVisible: Boolean,
   switchToLogin: Function,
-  closeModal: Function,
-  isRegisterModalVisible: Boolean
-});
+  closeModal: Function
+})
 
+const authStore = useAuthStore();
+
+const regName = ref('');
 const regEmail = ref('');
 const regPassword = ref('');
 const repeatedPassword = ref('');
+
+const handleRegister = async () => {
+  if (regPassword.value !== repeatedPassword.value) {
+    alert('Пароли не совпадают!');
+    return;
+  }
+
+  try {
+    await authStore.register({
+      email: regEmail.value,
+      password: regPassword.value,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
 </script>
 
 <style scoped>
@@ -250,5 +271,5 @@ const repeatedPassword = ref('');
     padding: 6px 10px;
   }
 }
+
 </style>
-  

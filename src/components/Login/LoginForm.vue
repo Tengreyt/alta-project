@@ -10,7 +10,7 @@
         </div>
         <div class="form-group">
           <label for="password">Пароль</label>
-          <input type="password" id="password" v-model="password" required />
+          <input type="password" id="password" v-model="password" required  autocomplete="current-password"/>
         </div>
         <button type="submit" class="btn-navifation-auth">Войти</button>
         <router-link to="/register">
@@ -35,6 +35,7 @@ defineProps({
 const username = ref('');
 const password = ref('');
 const authStore = useAuthStore();
+
 const loginHandler = () => {
   authStore.login({ username: username.value, password: password.value });
 }

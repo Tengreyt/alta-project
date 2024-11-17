@@ -42,7 +42,6 @@ const isRegisterModalVisible = ref(false);
 
 const authStore = useAuthStore();
 
-
 const showLoginModal = () => {
   isLoginModalVisible.value = true;
   isRegisterModalVisible.value = false;

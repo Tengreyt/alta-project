@@ -6,5 +6,3 @@
 import MainPage from '@/pages/MainPage/MainPage.vue'
 
 </script>
-
-<style scoped></style>
