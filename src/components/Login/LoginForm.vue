@@ -1,69 +1,48 @@
 <template>
-  <div>
-    <header class="upload-container">
-      <div class="header-row">
-        <div class="header-logo">
-          <img src="../assets/images/ALTA.AI.png" alt="ALTA.ai">
+  <div class="modal" v-if="isLoginModalVisible">
+    <div class="modal-content">
+      <span class="close" @click="onClose">&times;</span>
+      <h2>Вход</h2>
+      <form @submit.prevent="login" @submit="loginHandler">
+        <div class="form-group">
+          <label for="email">Электронная почта</label>
+          <input id="email" v-model="username" required />
         </div>
-        <nav class="nav">
-          <ul class="nav-list">
-            <li class="nav-item"><a href="#">Главная</a></li>
-            <li class="nav-item"><a href="#">Библиотека</a></li>
-            <li class="nav-item"><a href="#">Генерация</a></li>
-            <li class="nav-item"><a href="#">Контакты</a></li>
-          </ul>
-        </nav>
-        <div class="header-login" v-if="!authStore.isAuthenticated">
-          <button class="btn-navifation-auth" @click="showLoginModal">Вход</button>
-          <button class="header-register" @click="showRegisterModal">Регистрация</button>
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input type="password" id="password" v-model="password" required />
         </div>
-        <div class="header-login" v-if="authStore.isAuthenticated">
-          <button @click="authStore.logout">Выйти</button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Модальное окно для входа -->
-    <LoginForm :isLoginModalVisible="isLoginModalVisible" :switchToRegister="switchToRegister" :onClose="closeModals" />
-
-    <!-- Модальное окно для регистрации -->
-    <RegisterForm :isRegisterModalVisible="isRegisterModalVisible" :switchToLogin="switchToLogin" :closeModal="closeModals" />
-  </div>
+        <button type="submit" class="btn-navifation-auth">Войти</button>
+        <router-link to="/register">
+          <p>Нет аккаунта? <a href="#" @click.prevent="switchToRegister">Зарегистрироваться</a></p>
+        </router-link>
+        
+      </form>
+    </div>
+</div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import LoginForm from './Login/LoginForm.vue';
-import RegisterForm from './Login/RegisterForm.vue';
 import { useAuthStore } from '@/stores/authStore';
+import { ref, defineProps } from 'vue';
 
-const isLoginModalVisible = ref(false);
-const isRegisterModalVisible = ref(false);
+defineProps({
+  switchToRegister: Function,
+  isLoginModalVisible: Boolean,
+  onClose: Function
+})
 
+const username = ref('');
+const password = ref('');
 const authStore = useAuthStore();
-
-
-const showLoginModal = () => {
-  isLoginModalVisible.value = true;
-  isRegisterModalVisible.value = false;
-};
-
-const showRegisterModal = () => {
-  isRegisterModalVisible.value = true;
-  isLoginModalVisible.value = false;
-};
-
-const closeModals = () => {
-  isLoginModalVisible.value = false;
-  isRegisterModalVisible.value = false;
-};
-
-// Переключение на форму логина
+const loginHandler = () => {
+  authStore.login({ username: username.value, password: password.value });
+}
 
 </script>
 
-
 <style scoped>
+
 .upload-container {
   padding: 58px 0 0px 0;
   border-bottom: 1px solid #000000;
@@ -134,26 +113,11 @@ const closeModals = () => {
   color: #000;
 }
 
-.btn-navifation-auth {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-
-  font-family: 'Play', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-
-}
-
 .header-register {
   padding: 10px 15px;
   border: 1px solid #000000;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 16px;
 }
 
 .header-register:hover {

@@ -114,14 +114,19 @@
     .secondary-images img {
         max-width: 70%;
     }
-}
 
-@media (max-width: 1024px) {
+    .secondary-images > div:nth-child(2) {
+        justify-content: center;
+    }
     .line {
         max-width: 350px;
     }
     .secondary-images img {
         max-width: 48.5%;
+    }
+    .important-images {
+        display: flex;
+        flex-direction: column;
     }
 }
 

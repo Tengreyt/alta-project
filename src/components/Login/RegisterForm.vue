@@ -1,67 +1,44 @@
 <template>
-  <div>
-    <header class="upload-container">
-      <div class="header-row">
-        <div class="header-logo">
-          <img src="../assets/images/ALTA.AI.png" alt="ALTA.ai">
+  <div class="modal" v-if="isRegisterModalVisible">
+    <div class="modal-content">
+      <span class="close" @click="closeModal">&times;</span>
+      <h2>Регистрация</h2>
+      <form @submit.prevent="register">
+        <div class="form-group">
+          <label for="reg-email">Электронная почта</label>
+          <input type="email" id="reg-email" v-model="regEmail" required />
         </div>
-        <nav class="nav">
-          <ul class="nav-list">
-            <li class="nav-item"><a href="#">Главная</a></li>
-            <li class="nav-item"><a href="#">Библиотека</a></li>
-            <li class="nav-item"><a href="#">Генерация</a></li>
-            <li class="nav-item"><a href="#">Контакты</a></li>
-          </ul>
-        </nav>
-        <div class="header-login" v-if="!authStore.isAuthenticated">
-          <button class="btn-navifation-auth" @click="showLoginModal">Вход</button>
-          <button class="header-register" @click="showRegisterModal">Регистрация</button>
+        <div class="form-group">
+          <label for="reg-password">Пароль</label>
+          <input type="password" id="reg-password" v-model="regPassword" required />
         </div>
-        <div class="header-login" v-if="authStore.isAuthenticated">
-          <button @click="authStore.logout">Выйти</button>
+        <div class="form-group">
+          <label for="repeated-password">Подтвердите пароль</label>
+          <input type="password" id="repeated-password" v-model="repeatedPassword" required />
         </div>
-      </div>
-    </header>
-
-    <!-- Модальное окно для входа -->
-    <LoginForm :isLoginModalVisible="isLoginModalVisible" :switchToRegister="switchToRegister" :onClose="closeModals" />
-
-    <!-- Модальное окно для регистрации -->
-    <RegisterForm :isRegisterModalVisible="isRegisterModalVisible" :switchToLogin="switchToLogin" :closeModal="closeModals" />
+        <button type="submit">Зарегистрироваться</button>
+        <router-link to="/login">
+          <p>Уже есть аккаунт? <a href="#" @click.prevent="switchToLogin">Войти</a></p>
+        </router-link>
+      </form>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import LoginForm from './Login/LoginForm.vue';
-import RegisterForm from './Login/RegisterForm.vue';
-import { useAuthStore } from '@/stores/authStore';
-
-const isLoginModalVisible = ref(false);
-const isRegisterModalVisible = ref(false);
-
-const authStore = useAuthStore();
+import { ref, defineProps } from 'vue';
 
 
-const showLoginModal = () => {
-  isLoginModalVisible.value = true;
-  isRegisterModalVisible.value = false;
-};
+defineProps({
+  switchToLogin: Function,
+  closeModal: Function,
+  isRegisterModalVisible: Boolean
+});
 
-const showRegisterModal = () => {
-  isRegisterModalVisible.value = true;
-  isLoginModalVisible.value = false;
-};
-
-const closeModals = () => {
-  isLoginModalVisible.value = false;
-  isRegisterModalVisible.value = false;
-};
-
-// Переключение на форму логина
-
+const regEmail = ref('');
+const regPassword = ref('');
+const repeatedPassword = ref('');
 </script>
-
 
 <style scoped>
 .upload-container {
@@ -273,5 +250,5 @@ const closeModals = () => {
     padding: 6px 10px;
   }
 }
-
 </style>
+  
