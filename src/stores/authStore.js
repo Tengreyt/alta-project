@@ -6,10 +6,13 @@ const REFRESH_KEY = "refresh";
 
 
 export const useAuthStore = defineStore("auth", {
+  // state: () => ({
+  //   token: localStorage.getItem(ACCESS_KEY) || null, // Загружаем токен из localStorage
+  // }),
   state: () => ({
-    token: localStorage.getItem(ACCESS_KEY) || null, // Загружаем токен из localStorage
+    accessToken: localStorage.getItem(ACCESS_KEY) || null,
+    refreshToken: localStorage.getItem(REFRESH_KEY) || null,
   }),
-
   getters: {
     isAuthenticated: (state) => !!state.token, // Проверка авторизации
   },
@@ -17,18 +20,23 @@ export const useAuthStore = defineStore("auth", {
   actions: {
     async register(credentials) {
       try {
-        await AuthService.register(credentials); // Запрос на регистрацию
-        alert('Регистрация прошла успешно! Теперь войдите в аккаунт.');
+        const response = await AuthService.register(credentials);
+        const { access, refresh } = response.data;
+        this.accessToken = access; 
+        this.refreshToken = refresh; 
+        localStorage.setItem(ACCESS_KEY, access);
+        localStorage.setItem(REFRESH_KEY, refresh);
+        alert("Регистрация прошла успешно!");
       } catch (error) {
-        console.error('Ошибка регистрации:', error);
-        alert('Не удалось зарегистрироваться. Проверьте данные.');
+        const errors = error.response?.data || { detail: "Неизвестная ошибка" };
+        console.log(`Ошибка: ${JSON.stringify(errors)}`);
       }
     },
-
     async login(credentials) {
       try {
         const response = await AuthService.login(credentials);
         this.token = response.data.access // Симуляция токена
+        this.refreshToken  = response.data.refresh;
         localStorage.setItem(ACCESS_KEY, this.access);
         localStorage.setItem(REFRESH_KEY, this.refresh);
         console.log("Вход успешный!");

@@ -62,9 +62,7 @@
 </script>
 
 <style scoped>
-.footer-container {
-    padding: 0px 20px;
-}
+
 
 .section-primary-footer {
     position: relative;
@@ -249,6 +247,9 @@
         flex-direction: column;
         align-items: flex-start;
     }
+    .footer-container {
+        padding: 0px 10px;
+    }
 
     .footer-logo > img {
         width: 220px; /* Уменьшаем размер логотипа */
@@ -298,6 +299,9 @@
     .footer-row {
         padding: 20px;
         gap: 20px;
+    }
+    .footer-container {
+        padding: 0px 10px;
     }
 
     .footer-container {

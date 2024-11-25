@@ -52,8 +52,10 @@ const handleRegister = async () => {
 
   try {
     await authStore.register({
+      username: regName.value,
       email: regEmail.value,
       password: regPassword.value,
+      password2: repeatedPassword.value,
     });
   } catch (error) {
     console.error(error);

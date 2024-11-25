@@ -7,7 +7,9 @@ export const apiInstanse = axios.create({
 
 apiInstanse.interceptors.request.use(config => {
     const authStore = useAuthStore();
-    config.headers.Authorization = `Bearer ${authStore.token}`;
+    if (authStore.token) {
+        config.headers.Authorization = `Bearer ${authStore.token}`;
+    }
 
     return config 
 })
