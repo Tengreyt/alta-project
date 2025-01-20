@@ -21,7 +21,11 @@
           <input type="password" id="repeated-password" v-model="repeatedPassword" autocomplete="current-password" required />
         </div>
         <button type="submit">Зарегистрироваться</button>
-        <p>Уже есть аккаунт? <a href="#" @click.prevent="switchToLogin">Войти</a></p>
+        <p>Уже есть аккаунт?
+          <router-link to="/login">
+            <a href="#" @click.prevent="switchToLogin">Войти</a>
+          </router-link>
+        </p>
       </form>
     </div>
   </div>

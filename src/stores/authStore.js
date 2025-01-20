@@ -1,8 +1,12 @@
 import { defineStore } from "pinia";
 import { AuthService } from "@/services/AuthService";
+import { jwtDecode } from "jwt-decode";
 
 const ACCESS_KEY = "token";
 const REFRESH_KEY = "refresh";
+
+const token = localStorage.getItem(ACCESS_KEY);
+const decodedToken = token && token !== 'undefined' ? jwtDecode(token) : {};
 
 
 export const useAuthStore = defineStore("auth", {
@@ -12,9 +16,11 @@ export const useAuthStore = defineStore("auth", {
   state: () => ({
     accessToken: localStorage.getItem(ACCESS_KEY) || null,
     refreshToken: localStorage.getItem(REFRESH_KEY) || null,
+    userName: decodedToken.username,
+    userId: decodedToken.user_id,
   }),
   getters: {
-    isAuthenticated: (state) => !!state.token, // Проверка авторизации
+    isAuthenticated: (state) => !!state.accessToken, // Проверка авторизации
   },
 
   actions: {
@@ -26,6 +32,9 @@ export const useAuthStore = defineStore("auth", {
         this.refreshToken = refresh; 
         localStorage.setItem(ACCESS_KEY, access);
         localStorage.setItem(REFRESH_KEY, refresh);
+        const decodedToken = jwtDecode(access);
+        this.userName = decodedToken.username;
+        this.userId = decodedToken.user_id;
         alert("Регистрация прошла успешно!");
       } catch (error) {
         const errors = error.response?.data || { detail: "Неизвестная ошибка" };
@@ -35,10 +44,15 @@ export const useAuthStore = defineStore("auth", {
     async login(credentials) {
       try {
         const response = await AuthService.login(credentials);
-        this.token = response.data.access // Симуляция токена
-        this.refreshToken  = response.data.refresh;
-        localStorage.setItem(ACCESS_KEY, this.access);
-        localStorage.setItem(REFRESH_KEY, this.refresh);
+        console.log({response})
+        const { access, refresh } = response.data;
+        this.accessToken = access; // Симуляция токена
+        this.refreshToken  = refresh;
+        localStorage.setItem(ACCESS_KEY, this.accessToken);
+        localStorage.setItem(REFRESH_KEY, this.refreshToken);
+        const decodedToken = jwtDecode(access);
+        this.userName = decodedToken.username;
+        this.userId = decodedToken.user_id;
         console.log("Вход успешный!");
       } catch (error) {
         console.error("Ошибка авторизации:", error);
@@ -47,7 +61,8 @@ export const useAuthStore = defineStore("auth", {
     },
 
     logout() {
-      this.token = null;
+      this.accessToken = null;
+      this.refreshToken = null;
       localStorage.removeItem(ACCESS_KEY); // Удаляем токен
       localStorage.removeItem(REFRESH_KEY); // Удаляем токен
       alert("Вы вышли из системы.");

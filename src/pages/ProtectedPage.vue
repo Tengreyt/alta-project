@@ -1,11 +1,8 @@
 <template>
     <div class="main">
-      protected page
+      
     </div>
-  </template>
+</template>
   
-  <script setup>
 
-  
-  </script>
   

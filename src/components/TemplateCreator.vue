@@ -11,7 +11,9 @@
 <style scoped>
 .template{
     margin-top: 25px;
+    padding: 10px 0 0px 0;
     border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
 }
 
 .template-content {

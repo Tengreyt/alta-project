@@ -1,6 +1,7 @@
 <template>
     <div class="main">
       <AppHeader />
+      <router-view />
       <TemplateCreator />
       <ContentSection />
       <AppAdvantages />

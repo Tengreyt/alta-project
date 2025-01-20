@@ -5,7 +5,7 @@
       <h2>Вход</h2>
       <form @submit.prevent="login" @submit="loginHandler">
         <div class="form-group">
-          <label for="email">Электронная почта</label>
+          <label for="email">Имя пользователя</label>
           <input id="email" v-model="username" required />
         </div>
         <div class="form-group">
@@ -13,11 +13,12 @@
           <input type="password" id="password" v-model="password" required  autocomplete="current-password"/>
         </div>
         <button type="submit" class="btn-navifation-auth">Войти</button>
-        <router-link to="/register">
-          <p>Нет аккаунта? <a href="#" @click.prevent="switchToRegister">Зарегистрироваться</a></p>
-        </router-link>
-        
-      </form>
+        <p>Нет аккаунта?
+          <router-link to="/register">
+            <a href="#" @click.prevent="switchToRegister">Зарегистрироваться</a>
+          </router-link>
+        </p>
+       </form>
     </div>
 </div>
 </template>

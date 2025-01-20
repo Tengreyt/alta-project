@@ -7,10 +7,18 @@
         </div>
         <nav class="nav">
           <ul class="nav-list">
-            <li class="nav-item"><a href="#">Главная</a></li>
-            <li class="nav-item"><a href="#">Библиотека</a></li>
-            <li class="nav-item"><a href="#">Генерация</a></li>
-            <li class="nav-item"><a href="#">Контакты</a></li>
+            <li class="nav-item">
+              <router-link to="/" active-class="active">Главная</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/library" active-class="active">Библиотека</router-link>
+            </li>
+            <li class="nav-item">
+              <a href="#" >Генерация</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" >Контакты</a>
+            </li>
           </ul>
         </nav>
         <div class="header-login" v-if="!authStore.isAuthenticated">
@@ -22,6 +30,7 @@
         </div>
       </div>
     </header>
+
 
     <!-- Модальное окно для входа -->
     <LoginForm :isLoginModalVisible="isLoginModalVisible" :switchToRegister="switchToRegister" :onClose="closeModals" />
@@ -65,7 +74,7 @@ const closeModals = () => {
 <style scoped>
 .upload-container {
   padding: 58px 0 0px 0;
-  border-bottom: 1px solid #000000;
+  
 }
 
 .header-row {
@@ -119,6 +128,14 @@ const closeModals = () => {
 .nav-item a:hover::after {
   width: 100%;
 }
+
+/* Активное состояние */
+
+
+.nav-item .active::after {
+  width: 100%;
+}
+
 
 .header-login {
   display: flex;
