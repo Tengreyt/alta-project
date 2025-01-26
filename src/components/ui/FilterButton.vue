@@ -15,6 +15,7 @@ defineProps(['showFilters']);
 
 <style scoped>
 .btn {
+    font-family: 'Play', sans-serif;
     padding: 18px 24px;
     background-color: #f60;
     border-radius: 16px;
@@ -26,5 +27,9 @@ defineProps(['showFilters']);
 
 .btn:hover {
     background-color: #e55500;
+}
+
+.btn span {
+    margin-right: 10px;
 }
 </style>

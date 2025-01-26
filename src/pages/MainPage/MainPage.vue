@@ -1,7 +1,6 @@
 <template>
     <div class="main">
       <AppHeader />
-      <router-view />
       <TemplateCreator />
       <ContentSection />
       <AppAdvantages />
@@ -35,6 +34,7 @@ import AppFooter from '@/components/AppFooter.vue';
 body {
   max-width: 1920px;
   margin: 0 auto;
+  background: #F0F2E6;
 }
 
 .main {
