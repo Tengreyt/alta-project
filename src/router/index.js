@@ -5,6 +5,7 @@ import ProtectedPage from "@/pages/ProtectedPage.vue";
 import LoginForm from "@/components/Login/LoginForm.vue";
 import RegisterForm from "@/components/Login/RegisterForm.vue";
 import AppLibrary from "@/pages/AppLibrary.vue";
+import AppGeneration from "@/pages/AppGeneration.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -19,6 +20,7 @@ const router = createRouter({
       name: "Protected",
       component: ProtectedPage, // Не добавляйте здесь AppHeader и AppFooter
     },
+  
     {
       path: "/login",
       name: "Login",
@@ -33,6 +35,11 @@ const router = createRouter({
       path: "/library",
       name: "Library",
       component: AppLibrary,
+    },
+    {
+      path: "/generate",
+      name: "Generate",
+      component: AppGeneration,
     },
   ],
 });

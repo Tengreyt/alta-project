@@ -14,7 +14,7 @@
               <router-link to="/library" active-class="active">Библиотека</router-link>
             </li>
             <li class="nav-item">
-              <a href="#" >Генерация</a>
+              <router-link to="/generate" active-class="active">Генерация</router-link>
             </li>
             <li class="nav-item">
               <a href="#" >Контакты</a>
